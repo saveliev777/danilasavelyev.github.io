@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danila Savelyev · Complex Transformation Advisory</title>
+  <meta name="description" content="Independent advisory for complex digital transformation programs — energy, telecom, industrial manufacturing, aerospace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --bg: #0f0f0f;
+      --bg2: #161616;
+      --bg3: #1e1e1e;
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.12);
+      --text: #e8e8e8;
+      --text2: #a0a0a0;
+      --text3: #606060;
+      --accent: #c8a96e;
+      --accent-bg: rgba(200,169,110,0.08);
+      --info: #6b9fd4;
+      --info-bg: rgba(107,159,212,0.1);
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    /* Lang badges */
+    .lang-badge { display: flex; gap: 6px; margin-bottom: 2.5rem; }
+    .lang {
+      font-size: 11px; font-weight: 500; padding: 3px 11px;
+      border-radius: 20px; border: 0.5px solid var(--border2);
+      color: var(--text3); letter-spacing: .06em;
+    }
+
+    /* Hero */
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 40px);
+      font-weight: 400; line-height: 1.15;
+      margin-bottom: .4rem; color: #f0f0f0;
+    }
+    .hero-current {
+      font-size: 12px; color: var(--text3);
+      margin-bottom: .5rem; letter-spacing: .02em;
+    }
+    .hero-title {
+      font-size: 13px; font-weight: 400;
+      color: var(--text2); letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 1.75rem;
+    }
+    .hero-line {
+      width: 36px; height: 1px;
+      background: var(--accent); opacity: .5;
+      margin-bottom: 1.75rem;
+    }
+    .location-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text3); margin-bottom: 2rem;
+    }
+    .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text3); }
+    .hero-statement {
+      font-size: 18px; font-weight: 300; line-height: 1.8;
+      color: var(--text); margin-bottom: .9rem;
+    }
+    .hero-sub {
+      font-size: 14px; color: var(--text2);
+      line-height: 1.7; margin-bottom: 3rem;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 10px; margin-bottom: 2rem;
+    }
+    .stat {
+      background: var(--bg2); border: 0.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-n {
+      font-family: var(--serif); font-size: 28px;
+      font-weight: 400; margin-bottom: .3rem; color: #f0f0f0;
+    }
+    .stat-l { font-size: 11px; color: var(--text2); line-height: 1.4; }
+
+    /* Section */
+    .section { margin-bottom: 2.75rem; }
+    .section-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text3); margin-bottom: 1.25rem;
+      padding-bottom: .6rem; border-bottom: 0.5px solid var(--border);
+    }
+
+    /* Differentiator block */
+    .diff-block {
+      background: var(--accent-bg);
+      border: 0.5px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius); padding: 1.5rem;
+      margin-bottom: 2.75rem;
+    }
+    .diff-label {
+      font-size: 10px; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.1rem;
+    }
+    .diff-row { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 1rem; }
+    .diff-val {
+      font-family: var(--serif); font-size: 22px;
+      color: #f0f0f0; margin-bottom: .2rem;
+    }
+    .diff-desc { font-size: 12px; color: var(--text2); max-width: 160px; line-height: 1.4; }
+    .diff-text { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+    /* Cards */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card {
+      background: var(--bg2); border: 0.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem;
+      transition: border-color .2s;
+    }
+    .card:hover { border-color: var(--border2); }
+    .card-title { font-size: 15px; font-weight: 500; margin-bottom: .6rem; color: #f0f0f0; }
+    .card-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+    .card-tag {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      padding: 3px 9px; border-radius: 4px; margin-top: .85rem;
+      background: var(--info-bg); color: var(--info);
+    }
+
+    /* Domains */
+    .domain-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .domain {
+      font-size: 13px; padding: 5px 13px;
+      border: 0.5px solid var(--border); border-radius: 20px;
+      color: var(--text2);
+    }
+
+    /* Work items */
+    .work-item { display: flex; gap: 14px; margin-bottom: 1.25rem; }
+    .work-num {
+      font-family: var(--serif); font-size: 22px;
+      color: var(--text3); min-width: 26px; line-height: 1.2;
+    }
+    .work-title { font-size: 14px; font-weight: 500; margin-bottom: .3rem; color: #f0f0f0; }
+    .work-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+    /* Divider */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+
+    /* Lang blocks */
+    .lang-block { margin-bottom: 1.5rem; }
+    .lang-flag {
+      font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      color: var(--text3); margin-bottom: .6rem; text-transform: uppercase;
+    }
+    .lang-quote {
+      font-size: 15px; font-weight: 300; line-height: 1.75;
+      color: var(--text2); padding-left: 1rem;
+      border-left: 2px solid rgba(255,255,255,0.1);
+    }
+
+    /* CTA */
+    .cta-block {
+      background: var(--bg2); border: 0.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+    }
+    .cta-title { font-size: 15px; font-weight: 500; margin-bottom: .4rem; color: #f0f0f0; }
+    .cta-text { font-size: 13px; color: var(--text2); margin-bottom: 1.25rem; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cta-link {
+      font-size: 13px; padding: 7px 16px;
+      border: 0.5px solid var(--border2); border-radius: var(--radius-sm);
+      color: var(--text); text-decoration: none;
+      background: var(--bg3); transition: border-color .2s, color .2s;
+      cursor: pointer;
+    }
+    .cta-link:hover { border-color: var(--accent); color: var(--accent); }
+    .cta-link.primary {
+      background: var(--accent); border-color: var(--accent);
+      color: #0f0f0f; font-weight: 500;
+    }
+    .cta-link.primary:hover { opacity: .9; color: #0f0f0f; }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .page { padding: 2.5rem 1.25rem 4rem; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stats-row .stat:last-child { grid-column: span 2; }
+      .two-col { grid-template-columns: 1fr; }
+      .diff-row { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="lang-badge">
+    <span class="lang">EN</span>
+    <span class="lang">RU</span>
+    <span class="lang">ES</span>
+  </div>
+
+  <h1 class="hero-name">Danila Savelyev</h1>
+  <div class="hero-current">Currently: Director, Presales &amp; Complex Projects · Borlas Tech</div>
+  <div class="hero-title">Independent Advisory · Complex Transformation Programs</div>
+  <div class="hero-line"></div>
+
+  <div class="location-row">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    Buenos Aires, Argentina
+    <span class="dot"></span>
+    Remote · Cross-timezone delivery
+  </div>
+
+  <p class="hero-statement">
+    I help organizations navigate high-stakes digital transformation programs — where the technology is complex, the vendors are many, and the margin for failure is zero.
+  </p>
+  <p class="hero-sub">
+    20+ years across telecom, energy, industrial manufacturing, and aerospace. I work on both sides of the table — with enterprise buyers structuring programs, and with integrators building winning bids.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-n">×3.8</div>
+      <div class="stat-l">Revenue growth managed<br>($2.5M → $9.5M)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">$4M+</div>
+      <div class="stat-l">Active transformation portfolio</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">50+</div>
+      <div class="stat-l">Cross-functional specialists led</div>
+    </div>
+  </div>
+
+  <div class="diff-block">
+    <div class="diff-label">Financial &amp; Investment Discipline — a rare differentiator</div>
+    <div class="diff-row">
+      <div>
+        <div class="diff-val">$1.1B</div>
+        <div class="diff-desc">CAPEX investment program governed annually (Rostelecom)</div>
+      </div>
+      <div>
+        <div class="diff-val">CFA L1</div>
+        <div class="diff-desc">Investment analysis &amp; financial modelling</div>
+      </div>
+      <div>
+        <div class="diff-val">5+ yrs</div>
+        <div class="diff-desc">CFO-level budgeting, EBITDA/ROI control, CAPEX planning</div>
+      </div>
+    </div>
+    <p class="diff-text">
+      Most transformation advisors come from delivery or consulting. I bring an additional layer: the ability to evaluate program economics, investment feasibility, and financial risk at a level most program directors cannot.
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">How I work</div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">Advisory for enterprise buyers</div>
+        <div class="card-text">You're running a complex program and need an independent expert to help you select the right integrator, structure the requirements, and keep delivery on track.</div>
+        <span class="card-tag">For: CTO, COO, PMO</span>
+      </div>
+      <div class="card">
+        <div class="card-title">Embedded expert for integrators</div>
+        <div class="card-text">You've won a large bid but lack deep expertise in a specific domain. I join your delivery team as a senior subcontractor — accountable to outcomes.</div>
+        <span class="card-tag">For: SI, consulting firms</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Domains &amp; Industries</div>
+    <div class="domain-list">
+      <span class="domain">Energy &amp; utilities</span>
+      <span class="domain">Industrial manufacturing</span>
+      <span class="domain">Telecom &amp; B2G digital services</span>
+      <span class="domain">Aerospace &amp; defense · PLM</span>
+      <span class="domain">MES / SCADA / IIoT</span>
+      <span class="domain">ERP / digital twin</span>
+      <span class="domain">Cloud migration</span>
+      <span class="domain">Presales &amp; bid management</span>
+      <span class="domain">PMO &amp; governance</span>
+      <span class="domain">Investment program management</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Where I add value</div>
+    <div class="work-item">
+      <div class="work-num">1</div>
+      <div>
+        <div class="work-title">Program structure &amp; governance</div>
+        <div class="work-text">Setting up multi-vendor delivery models, SOW/SLA frameworks, RAID logs, and executive reporting from day one.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-num">2</div>
+      <div>
+        <div class="work-title">Bid &amp; proposal architecture</div>
+        <div class="work-text">Reviewing tender documents, identifying commercial and delivery risks before submission, structuring proposals for complex multi-component solutions.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-num">3</div>
+      <div>
+        <div class="work-title">Commercial &amp; investment economics</div>
+        <div class="work-text">Program business cases, pricing models, TCO/OPEX optimization, CAPEX feasibility — combining CFA-level financial discipline with 20 years of P&amp;L ownership in live programs.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-num">4</div>
+      <div>
+        <div class="work-title">Cross-border &amp; distributed program delivery</div>
+        <div class="work-text">Managing programs where stakeholders, vendors, and delivery teams are spread across multiple geographies and time zones. Remote-first operations and asynchronous governance built into the way I work by default.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="lang-block">
+    <div class="lang-flag">🇷🇺 Russian</div>
+    <div class="lang-quote">Я помогаю крупным компаниям реализовывать сложные трансформационные программы — там где нет готового решения, нужен независимый эксперт и гарантия результата. 20 лет на стыке технологий и отраслей: энергетика, телеком, промышленность, аэрокосмос. Финансовая дисциплина на уровне инвестиционного анализа — редкое сочетание для delivery-директора.</div>
+  </div>
+  <div class="lang-block" style="margin-bottom:2.5rem">
+    <div class="lang-flag">🇦🇷 Español</div>
+    <div class="lang-quote">Asesoro a empresas en la implementación de programas complejos de transformación digital — energía, industria, telecomunicaciones. Basado en Buenos Aires, disponible para proyectos en todo el mundo.</div>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-title">Let's talk</div>
+    <div class="cta-text">Available for advisory engagements, embedded expert roles, and fractional program leadership. Typically 2–10 hours per week depending on the engagement.</div>
+    <div class="cta-links">
+      <a class="cta-link primary" href="mailto:saveliev.dm@gmail.com">Email me</a>
+      <a class="cta-link" href="https://www.linkedin.com/in/danilasavelyev" target="_blank">LinkedIn</a>
+      <a class="cta-link" id="calendly-btn" href="#" style="display:none" target="_blank">Book a call</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
